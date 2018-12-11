@@ -472,7 +472,7 @@ func NewProcessFunc(run func(ctx context.Context, args string) error) *Process {
 
 // ProcessFuncIO is the Context key to access optional ProcessIO
 var ProcessFuncIO = struct {
-	key int
+	key int64
 }{vix.CommandMagicWord}
 
 func (f *processFunc) start(p *Process, r *vix.StartProgramRequest) (int64, error) {

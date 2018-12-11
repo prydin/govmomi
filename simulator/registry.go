@@ -57,11 +57,11 @@ type RegisterObject interface {
 
 // Registry manages a map of mo.Reference objects
 type Registry struct {
+	counter  int64 // Keep first to avoid alignment issues
 	m        sync.Mutex
 	objects  map[types.ManagedObjectReference]mo.Reference
 	handlers map[types.ManagedObjectReference]RegisterObject
 	locks    map[types.ManagedObjectReference]sync.Locker
-	counter  int64
 
 	Namespace string
 	Path      string
